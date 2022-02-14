@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  color: #eee;
+  background-color: #16161a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 12px 20px;
+  background-color: #242629;
+  border-radius: 5px;
+}
+
+h1 {
+  color: #fffffe;
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: #94a1b2;
+  margin-bottom: 24px;
+}
+
+button {
+  color: #fffffe;
+  background-color: #7f5af0;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
