@@ -1,5 +1,5 @@
 const PASSWORD = 'password'
-const [LIMIT, MIN, MAX] = [12, 33, 126]
+const [NUM_PASSWORDS, LIMIT, MIN, MAX] = [4, 12, 33, 126]
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -18,13 +18,12 @@ function generateRandomPassword(min, max, limit) {
 }
 
 const button = document.querySelector('button')
+const passwordsContainer = document.querySelector('.passwords-container')
 
 button.addEventListener('click', () => {
-  console.log('I\'m clicked')
-  for (let i = 0; i < 4; i++) {
-    document.querySelector(`#${PASSWORD}-${i}`).textContent = generateRandomPassword(MIN, MAX, LIMIT)
+  passwordsContainer.innerHTML = ''
+
+  for (let i = 0; i < NUM_PASSWORDS; i++) {
+    passwordsContainer.insertAdjacentHTML('beforeend', `<div><p class="grid-item">${generateRandomPassword(MIN, MAX, LIMIT)}</p></div>`)
   }
 })
-
-
-
