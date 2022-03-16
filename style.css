@@ -63,5 +63,6 @@ button {
   border: 1px solid var(--button-color);
   text-align: center;
   padding: 24px;
+  width: 210px;
   /* border-radius: 5px; */
 }
