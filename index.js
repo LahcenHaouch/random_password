@@ -7,6 +7,14 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function escapeForHtml(str) {
+  return str.replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
 function generateRandomPassword(min, max, limit) {
   let password = ''
 
@@ -24,6 +32,6 @@ button.addEventListener('click', () => {
   passwordsContainer.innerHTML = ''
 
   for (let i = 0; i < NUM_PASSWORDS; i++) {
-    passwordsContainer.insertAdjacentHTML('beforeend', `<div><p class="grid-item">${generateRandomPassword(MIN, MAX, LIMIT)}</p></div>`)
+    passwordsContainer.insertAdjacentHTML('beforeend', `<div><p class="grid-item">${escapeForHtml(generateRandomPassword(MIN, MAX, LIMIT))}</p></div>`)
   }
 })

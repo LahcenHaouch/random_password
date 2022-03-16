@@ -27,6 +27,8 @@ main {
   padding: 16px 24px;
   background-color: var(--secondary-background);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
