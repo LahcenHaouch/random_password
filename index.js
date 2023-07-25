@@ -1,19 +1,12 @@
 const PASSWORD = "password";
 const [NUM_PASSWORDS, LIMIT, MIN, MAX] = [2, 12, 33, 126];
 
+const gridItems = document.querySelectorAll(".grid-item");
+
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function escapeForHtml(str) {
-  return str
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
 }
 
 function generateRandomPassword(min, max, limit) {
@@ -27,17 +20,9 @@ function generateRandomPassword(min, max, limit) {
 }
 
 const button = document.querySelector("button");
-const passwordsContainer = document.querySelector(".passwords-container");
 
 button.addEventListener("click", () => {
-  passwordsContainer.innerHTML = "";
-
-  for (let i = 0; i < NUM_PASSWORDS; i++) {
-    passwordsContainer.insertAdjacentHTML(
-      "beforeend",
-      `<div class="grid-item">${escapeForHtml(
-        generateRandomPassword(MIN, MAX, LIMIT)
-      )}</div>`
-    );
-  }
+  gridItems.forEach((item) => {
+    item.textContent = generateRandomPassword(MIN, MAX, LIMIT);
+  });
 });
